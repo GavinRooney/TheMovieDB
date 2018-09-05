@@ -10,7 +10,6 @@
 		39C48FC5E0A0067332EAB6E6 /* Pods_TheMovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E1ADE453EF80F133EF3C7 /* Pods_TheMovieDB.framework */; };
 		8617071221402EBB004680C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8617071121402EBB004680C1 /* AppDelegate.swift */; };
 		8617071421402EBB004680C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8617071321402EBB004680C1 /* ViewController.swift */; };
-		8617071721402EBB004680C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8617071521402EBB004680C1 /* Main.storyboard */; };
 		8617071921402EBD004680C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8617071821402EBD004680C1 /* Assets.xcassets */; };
 		8617071C21402EBD004680C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8617071A21402EBD004680C1 /* LaunchScreen.storyboard */; };
 		8617072721402EBD004680C1 /* TheMovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8617072621402EBD004680C1 /* TheMovieDBTests.swift */; };
@@ -34,7 +33,6 @@
 		8617070E21402EBB004680C1 /* TheMovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8617071121402EBB004680C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8617071321402EBB004680C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8617071621402EBB004680C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8617071821402EBD004680C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8617071B21402EBD004680C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8617071D21402EBD004680C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 			children = (
 				8617071121402EBB004680C1 /* AppDelegate.swift */,
 				8617071321402EBB004680C1 /* ViewController.swift */,
-				8617071521402EBB004680C1 /* Main.storyboard */,
 				8617071821402EBD004680C1 /* Assets.xcassets */,
 				8617071A21402EBD004680C1 /* LaunchScreen.storyboard */,
 				8617071D21402EBD004680C1 /* Info.plist */,
@@ -214,7 +211,6 @@
 			files = (
 				8617071C21402EBD004680C1 /* LaunchScreen.storyboard in Resources */,
 				8617071921402EBD004680C1 /* Assets.xcassets in Resources */,
-				8617071721402EBB004680C1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,14 +315,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8617071521402EBB004680C1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8617071621402EBB004680C1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8617071A21402EBD004680C1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -389,7 +377,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -443,7 +431,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -470,7 +458,7 @@
 				PROVISIONING_PROFILE = "67f83a67-211a-4f6b-a74f-7a0f40b55d43";
 				PROVISIONING_PROFILE_SPECIFIER = "XC Ad Hoc: *";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -490,7 +478,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
