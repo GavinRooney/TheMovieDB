@@ -1,0 +1,29 @@
+PODS:
+  - Alamofire (4.6.0)
+  - AlamofireImage (3.3.0):
+    - Alamofire (~> 4.5)
+  - Reveal-SDK (17)
+  - TinyConstraints (3.1.0)
+
+DEPENDENCIES:
+  - Alamofire (= 4.6.0)
+  - AlamofireImage (= 3.3.0)
+  - Reveal-SDK
+  - TinyConstraints (= 3.1.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireImage
+    - Reveal-SDK
+    - TinyConstraints
+
+SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
+  Reveal-SDK: a6df49f47319bd19a110c960c498af32df72c0af
+  TinyConstraints: 4721a4b303c799328867078ade6560e152df54d1
+
+PODFILE CHECKSUM: c2032421db2118dd50828d89ff7d41ab71e1259e
+
+COCOAPODS: 1.5.3
