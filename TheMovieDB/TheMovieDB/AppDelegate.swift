@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         temp.view.backgroundColor = UIColor.red
         window!.rootViewController = temp
 
+        // Set up the settings bundle
+        Settings.sharedInstance.setup()
+        
         return true
     }
 
