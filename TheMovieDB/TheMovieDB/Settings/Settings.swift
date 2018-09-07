@@ -22,9 +22,9 @@ final class Settings: NSObject {
     // QA could also manually type in their own urls from settings menu on the os
     
     private enum URLs {
-        static let development = "https://api.themoviedb.org"
-        static let staging     = "https://api.themoviedb.org"
-        static let live        = "https://api.themoviedb.org"
+        static let development = "https://api.themoviedb.org/3"
+        static let staging     = "https://api.themoviedb.org/3"
+        static let live        = "https://api.themoviedb.org/3"
     }
     
     // each environment might have its own keys
@@ -160,7 +160,7 @@ final class Settings: NSObject {
         }
     }
     
-    public var environmentKey: String {
+    public var environmentKey: String? {
         get {
             return keyForEnvironment(environment)
         }

@@ -1,0 +1,10 @@
+//
+//  String.swift
+//  TheMovieDB
+//
+//  Created by Gavin on 07/09/2018.
+//  Copyright © 2018 Safehouse. All rights reserved.
+//
+
+// Errors
+"PLEASE_CHECK_INTERNET" = "Please check your internet connection.";

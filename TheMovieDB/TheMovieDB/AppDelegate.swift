@@ -26,6 +26,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set up the settings bundle
         Settings.sharedInstance.setup()
         
+        
+        // Test api call
+        GetMoviesWorker().request(query: "bat", page: 1, completion: { response in
+            
+        }, failure: { error in
+            
+        })
+        
+        
         return true
     }
 
