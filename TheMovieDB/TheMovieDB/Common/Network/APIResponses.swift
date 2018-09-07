@@ -20,21 +20,26 @@ struct ErrorResponse: Codable {
 }
 
 struct SearchMoviesListResponse: Codable {
-
-    let test: String?
-    let page: Int?
-    let total_results: Int?
-    let total_Pages: Int?
-    //let results: [Any]?
     
+    let page: Int?
+    let totalResults: Int?
+    let totalPages: Int?
+    let results: [Movie]?
+    
+    enum CodingKeys: String, CodingKey {
+        case totalResults = "total_results"
+        case totalPages = "total_pages"
+
+        case results
+        case page
+    }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.test = try container.decodeIfPresent(String.self, forKey: .test) ?? ""
         self.page = try container.decodeIfPresent(Int.self, forKey: .page) ?? nil
-        self.total_results = try container.decodeIfPresent(Int.self, forKey: .total_results) ?? nil
-        self.total_Pages = try container.decodeIfPresent(Int.self, forKey: .total_Pages) ?? nil
-        //self.results = try container.decodeIfPresent([Any]?.self, forKey: .results) ?? nil
+        self.totalResults = try container.decodeIfPresent(Int.self, forKey: .totalResults) ?? nil
+        self.totalPages = try container.decodeIfPresent(Int.self, forKey: .totalPages) ?? nil
+        self.results = try container.decodeIfPresent([Movie]?.self, forKey: .results) ?? nil
         
     }
 }
