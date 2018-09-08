@@ -8,3 +8,8 @@
 
 // Errors
 "PLEASE_CHECK_INTERNET" = "Please check your internet connection.";
+
+
+// Movie Content
+"MOVIES" = "Movies";
+

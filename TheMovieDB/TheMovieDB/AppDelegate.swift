@@ -17,14 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window!.makeKeyAndVisible()
-        let temp = UIViewController()
-        temp.view.backgroundColor = UIColor.red
-        window!.rootViewController = temp
-
         // Set up the settings bundle
         Settings.sharedInstance.setup()
+        
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window!.makeKeyAndVisible()
+        let temp = MovieListViewController()
+        window!.rootViewController = temp
+
         
         
         // Test api call
