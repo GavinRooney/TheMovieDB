@@ -51,6 +51,9 @@
 		861707992143F103004680C1 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707982143F103004680C1 /* Genre.swift */; };
 		8617079C2143F1DE004680C1 /* GenreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8617079B2143F1DE004680C1 /* GenreManager.swift */; };
 		8617079E2143F2C1004680C1 /* genres.json in Resources */ = {isa = PBXBuildFile; fileRef = 8617079D2143F2C1004680C1 /* genres.json */; };
+		8617079F21440063004680C1 /* GetGenresWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707962143F051004680C1 /* GetGenresWorker.swift */; };
+		861707A021440069004680C1 /* GenreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8617079B2143F1DE004680C1 /* GenreManager.swift */; };
+		861707A12144006F004680C1 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707982143F103004680C1 /* Genre.swift */; };
 		D42D03BB9C0AACAFFD3436D6 /* Pods_TheMovieDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1013E700B5C622D2CD2146A0 /* Pods_TheMovieDBTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -689,9 +692,12 @@
 				861707692142E2C5004680C1 /* Settings.swift in Sources */,
 				8617076B2142E2E2004680C1 /* JSONHelpers.swift in Sources */,
 				8617076F2142E409004680C1 /* Movie.swift in Sources */,
+				861707A12144006F004680C1 /* Genre.swift in Sources */,
+				861707A021440069004680C1 /* GenreManager.swift in Sources */,
 				8617075D2142E183004680C1 /* TheMovieDBAPITests.swift in Sources */,
 				861707682142E1E0004680C1 /* APIResponses.swift in Sources */,
 				861707652142E1D1004680C1 /* GetMoviesWorker.swift in Sources */,
+				8617079F21440063004680C1 /* GetGenresWorker.swift in Sources */,
 				8617076A2142E2DD004680C1 /* String.swift in Sources */,
 				861707672142E1DE004680C1 /* APIRequests.swift in Sources */,
 				861707662142E1DB004680C1 /* APIClient.swift in Sources */,

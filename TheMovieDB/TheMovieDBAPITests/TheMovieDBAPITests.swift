@@ -98,6 +98,39 @@ class TheMovieDBAPITests: XCTestCase {
         
         waitForExpectations(timeout: 5, handler: nil)
     }
+    
+    func testGetGenresAPIResponse() {
+        
+        let genreWorker = GetGenresWorker()
+        let promise = expectation(description: "Status code: 200")
+        
+        genreWorker.request(completion: { response in
+            
+            guard response.genres != nil else {
+                return
+            }
+            
+
+            if let genres = response.genres {
+                if let genre = genres.first {
+                    
+                    guard genre.id != nil else {
+                        return
+                    }
+                    guard genre.name != nil else {
+                        return
+                    }
+                }
+            }
+            
+            promise.fulfill()
+            
+        }) { error in
+            
+        }
+        
+        waitForExpectations(timeout: 5, handler: nil)
+    }
 
     
 }
