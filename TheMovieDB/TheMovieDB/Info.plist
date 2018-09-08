@@ -39,5 +39,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>UIAppFonts</key>
+    <array>
+        <string>nevis.ttf</string>
+        <string>Muli-Regular.ttf</string>
+        <string>Muli-Bold.ttf</string>
+    </array>
 </dict>
 </plist>

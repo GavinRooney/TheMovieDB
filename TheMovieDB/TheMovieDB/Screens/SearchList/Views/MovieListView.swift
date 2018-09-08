@@ -92,7 +92,6 @@ extension MovieListView {
         titleLabel.centerX(to: self)
         titleLabel.top(to: self, offset: 30.0)
         
-        
         tableView.topToBottom(of: titleLabel, offset: 0.0)
         tableView.bottom(to: self, offset: -50)
         tableView.trailing(to: self)
