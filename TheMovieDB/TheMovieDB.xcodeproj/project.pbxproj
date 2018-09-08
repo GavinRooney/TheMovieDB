@@ -172,6 +172,7 @@
 		8617071021402EBB004680C1 /* TheMovieDB */ = {
 			isa = PBXGroup;
 			children = (
+				861707712143C016004680C1 /* Screens */,
 				861707502142CF39004680C1 /* AppConfig */,
 				8617074C2142CE3B004680C1 /* Localization */,
 				8617073F2142C9BA004680C1 /* Common */,
@@ -280,6 +281,21 @@
 				8617076D2142E405004680C1 /* Movie.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		861707712143C016004680C1 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				861707722143C023004680C1 /* SearchList */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		861707722143C023004680C1 /* SearchList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SearchList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
