@@ -25,13 +25,30 @@ class MovieListInteractor {
         worker.request(query: query ?? "", page: 1, completion: { response in
             
             if let results = response.results {
-                self.delegate?.displayMovies(movies: results)
+                // Business logic here that requires the list ordered by popularity
+                self.delegate?.displayMovies(movies: self.sortByPopularity(results: results))
+            } else {
+                self.delegate?.displayMovies(movies: [])
             }
             
         }, failure: { error in
             
         })
 
+    }
+    
+    func sortByPopularity (results : [Movie] ) -> [Movie] {
+        
+        let sortedArray = results.sorted(by: {
+            if let pop1 = $0.popularity, let pop2 = $1.popularity {
+                return  pop1 > pop2
+            } else {
+                return false
+            }
+            
+            
+        })
+        return sortedArray
     }
     
 }
