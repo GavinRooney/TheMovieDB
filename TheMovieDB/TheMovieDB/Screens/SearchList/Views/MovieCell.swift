@@ -18,6 +18,8 @@ class MovieCell: UITableViewCell {
     private let foreground = UIView()
     private let titleLabel = HeaderLabel()
     private let genreLabel = SecondarySelectionLabel()
+    private let releaseYearLabel = HeaderLabel()
+    private let popularityLabel = HeaderLabel()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -43,6 +45,8 @@ extension MovieCell {
         setupForeground()
         setupTitleLabel()
         setupGenreLabel()
+        setupReleaseyearLabel()
+        setupPopularityLabel()
         setupConstraints()
     }
     
@@ -59,17 +63,29 @@ extension MovieCell {
     }
     
     private func setupForeground() {
-        contentView.addSubview(foreground)
-        foreground.backgroundColor = Style.Colors.white 
+        background.addSubview(foreground)
+        foreground.backgroundColor = Style.Colors.white
+        foreground.layer.cornerRadius = 4.0
     }
     
     private func setupTitleLabel() {
         foreground.addSubview(titleLabel)
-        foreground.layer.cornerRadius = 4.0
+        titleLabel.numberOfLines = 0
+    }
+    
+    private func setupReleaseyearLabel() {
+        background.addSubview(releaseYearLabel)
+        releaseYearLabel.textColor = Style.Colors.white
+    }
+    
+    private func setupPopularityLabel() {
+        background.addSubview(popularityLabel)
+        popularityLabel.textColor = Style.Colors.white
     }
     
     private func setupGenreLabel() {
         foreground.addSubview(genreLabel)
+        genreLabel.numberOfLines = 0
     }
     
     
@@ -80,26 +96,36 @@ extension MovieCell {
         
         background.top(to: contentView)
         background.left(to: contentView, offset: xPadding)
-        background.bottom(to: contentView, offset: -xPadding)
+        background.bottom(to: contentView, offset: -yPadding)
         background.right(to: contentView, offset: -xPadding)
         
         thumbnailView.top(to: foreground, offset: 0.0)
-        thumbnailView.bottom(to: background, offset: -xPadding)
         thumbnailView.left(to: background, offset: xPadding)
-        thumbnailView.width(80)
+        thumbnailView.width(70)
+        thumbnailView.height(90)
         
         foreground.top(to: background, offset: yPadding)
-        foreground.bottom(to: background, offset: -yPadding)
         foreground.leftToRight(of: thumbnailView, offset: xPadding)
         foreground.right(to: background, offset: -xPadding)
+        foreground.bottom(to: genreLabel, offset: yPadding)
         
-        titleLabel.left(to: foreground, offset: yPadding)
+        titleLabel.left(to: foreground, offset: xPadding)
         titleLabel.right(to: foreground)
-        titleLabel.centerY(to: foreground)
+        titleLabel.top(to: foreground, offset: yPadding)
         
         genreLabel.left(to: foreground, offset: xPadding)
         genreLabel.right(to: foreground, offset: -xPadding)
         genreLabel.topToBottom(of: titleLabel, offset: 5.0)
+    
+        releaseYearLabel.left(to: foreground, offset: xPadding)
+        releaseYearLabel.rightToLeft(of: popularityLabel, offset: -xPadding)
+        releaseYearLabel.topToBottom(of: foreground, offset: 5.0)
+        releaseYearLabel.bottom(to: background, offset: -yPadding)
+        
+        popularityLabel.leftToRight(of: releaseYearLabel, offset: xPadding)
+        popularityLabel.right(to: foreground, offset: -xPadding)
+        popularityLabel.topToBottom(of: foreground, offset: 5.0)
+        popularityLabel.bottom(to: background, offset: -yPadding)
         
     }
 }
@@ -107,7 +133,14 @@ extension MovieCell {
 extension MovieCell: ConfigurableCell {
     func configure(_ item: Movie, at indexPath: IndexPath) {
         titleLabel.text = item.title
-        genreLabel.text = item.overview
+        genreLabel.text = GenreManager.shared.constructGenreSentence(genreIDs: item.genreIds)
+        releaseYearLabel.text = Date.getYear(dateText: item.releaseDate)
+        if let popularity = item.popularity {
+            popularityLabel.text = String(popularity) + "%"
+        } else {
+            popularityLabel.text = ""
+        }
+        
     }
 }
 

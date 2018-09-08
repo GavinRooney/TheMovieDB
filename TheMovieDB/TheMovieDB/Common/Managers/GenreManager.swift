@@ -29,8 +29,8 @@ class GenreManager {
             
             do {
                 let data = try Data(contentsOf: fileURL, options: .mappedIfSafe)
-                let genresResponse = JSONHelpers.decode(MovieGenresResponse.self, from: data)
-                self.genres = genresResponse?.genres
+                let genres = JSONHelpers.decode([Genre].self, from: data)
+                self.genres = genres
             } catch {
                 // if no file has been written to docs then use the bundled file
                 self.genres = self.readLocalBundledGenres()
@@ -70,6 +70,24 @@ class GenreManager {
             }
         }
         return nil
+    }
+    
+    public func constructGenreSentence(genreIDs: [Int]?) -> String {
+        if let genres = genreIDs {
+            var genreText = ""
+            for genreID in genres {
+                let genre = GenreManager.shared.getGenre(withID: genreID)
+                if genreText.count > 0 {
+                    genreText += ", " + (genre?.name ?? "")
+                } else {
+                    genreText = genre?.name ?? ""
+                }
+                
+            }
+            return genreText
+            
+        }
+        return ""
     }
     
     private func updateGenres () {
