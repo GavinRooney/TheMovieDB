@@ -87,8 +87,9 @@ extension MovieCell {
     }
 }
 
-extension MovieCell {
-    public func configure(movie: Movie) {
+extension MovieCell: ConfigurableCell {
+    func configure(_ item: Movie, at indexPath: IndexPath) {
 
     }
 }
+

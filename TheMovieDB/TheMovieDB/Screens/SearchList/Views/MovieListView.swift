@@ -17,6 +17,7 @@ class MovieListView: UIView {
     
     private let searchField = UITextField()
     private let tableView = UITableView()
+    private var dataSource: MovieListDataSource?
     private let searchImageView = UIImageView()
     
     private let titleLabel = HeaderLabel()
@@ -91,7 +92,6 @@ extension MovieListView {
     
     private func setupTableView() {
         tableView.register(MovieCell.self, forCellReuseIdentifier: String(describing: MovieCell.self))
-        tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
         tableView.delegate = self
         tableView.separatorStyle = .none
@@ -130,31 +130,23 @@ extension MovieListView {
     
 }
 
-extension MovieListView: UITableViewDelegate, UITableViewDataSource {
+extension MovieListView {
+    func updateList(movies: [Movie]) {
+        dataSource = MovieListDataSource(tableView: tableView, array: movies, showSectionIndex: false)
+        tableView.reloadData()
+    }
+}
+
+extension MovieListView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
+        return 100
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MovieCell.self), for: indexPath) as! MovieCell
-        //cell.configure(movie: ??)
-        
-        return cell
-    }
 }
 
 

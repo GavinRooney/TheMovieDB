@@ -44,6 +44,8 @@
 		8617078B2143CE3D004680C1 /* Muli-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 861707882143CE3D004680C1 /* Muli-Bold.ttf */; };
 		8617078C2143CE3D004680C1 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 861707892143CE3D004680C1 /* Muli-Regular.ttf */; };
 		8617078D2143CE3D004680C1 /* nevis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8617078A2143CE3D004680C1 /* nevis.ttf */; };
+		861707902143D266004680C1 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8617078F2143D266004680C1 /* TableView.swift */; };
+		861707932143D3DF004680C1 /* MovieListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707922143D3DF004680C1 /* MovieListDataSource.swift */; };
 		D42D03BB9C0AACAFFD3436D6 /* Pods_TheMovieDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1013E700B5C622D2CD2146A0 /* Pods_TheMovieDBTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +106,8 @@
 		861707882143CE3D004680C1 /* Muli-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Bold.ttf"; sourceTree = "<group>"; };
 		861707892143CE3D004680C1 /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
 		8617078A2143CE3D004680C1 /* nevis.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = nevis.ttf; sourceTree = "<group>"; };
+		8617078F2143D266004680C1 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		861707922143D3DF004680C1 /* MovieListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListDataSource.swift; sourceTree = "<group>"; };
 		A52E1ADE453EF80F133EF3C7 /* Pods_TheMovieDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMovieDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEAD7CFD31485E00B3FC593 /* Pods-TheMovieDBAPITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDBAPITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieDBAPITests/Pods-TheMovieDBAPITests.release.xcconfig"; sourceTree = "<group>"; };
 		C785D41A7D62B2917E120341 /* Pods-TheMovieDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDB.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieDB/Pods-TheMovieDB.release.xcconfig"; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 		8617073F2142C9BA004680C1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8617078E2143D248004680C1 /* Protocols */,
 				8617077E2143C5BB004680C1 /* UIComponents */,
 				8617077B2143C535004680C1 /* Style */,
 				8617076C2142E3F0004680C1 /* Models */,
@@ -315,6 +320,7 @@
 		861707722143C023004680C1 /* SearchList */ = {
 			isa = PBXGroup;
 			children = (
+				861707912143D3CC004680C1 /* Datasource */,
 				861707782143C40E004680C1 /* Views */,
 				861707732143C0D4004680C1 /* MovieListViewController.swift */,
 			);
@@ -379,6 +385,22 @@
 			children = (
 			);
 			path = Animations;
+			sourceTree = "<group>";
+		};
+		8617078E2143D248004680C1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8617078F2143D266004680C1 /* TableView.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		861707912143D3CC004680C1 /* Datasource */ = {
+			isa = PBXGroup;
+			children = (
+				861707922143D3DF004680C1 /* MovieListDataSource.swift */,
+			);
+			path = Datasource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -606,6 +628,7 @@
 				861707742143C0D4004680C1 /* MovieListViewController.swift in Sources */,
 				861707552142D5DA004680C1 /* GetMoviesWorker.swift in Sources */,
 				8617071221402EBB004680C1 /* AppDelegate.swift in Sources */,
+				861707932143D3DF004680C1 /* MovieListDataSource.swift in Sources */,
 				8617077D2143C54B004680C1 /* Style.swift in Sources */,
 				861707822143C61E004680C1 /* Label.swift in Sources */,
 				861707422142C9D5004680C1 /* APIClient.swift in Sources */,
@@ -614,6 +637,7 @@
 				861707482142CA9F004680C1 /* APIResponses.swift in Sources */,
 				861707842143CADE004680C1 /* MovieCell.swift in Sources */,
 				8617074B2142CC00004680C1 /* String.swift in Sources */,
+				861707902143D266004680C1 /* TableView.swift in Sources */,
 				861707802143C5D4004680C1 /* Labels.swift in Sources */,
 				8617077A2143C424004680C1 /* MovieListView.swift in Sources */,
 				8617076E2142E405004680C1 /* Movie.swift in Sources */,
