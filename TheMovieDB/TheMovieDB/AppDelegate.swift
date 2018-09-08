@@ -28,12 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         
-        // Test api call
-        GetMoviesWorker().request(query: "bat", page: 1, completion: { response in
-            
-        }, failure: { error in
-            
-        })
+       
         
         
         return true

@@ -11,9 +11,12 @@ import UIKit
 class MovieListViewController: UIViewController {
     
     private var movieListView: MovieListView!
+    private var movieListInteractor: MovieListInteractor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.movieListInteractor = MovieListInteractor()
+        movieListInteractor?.delegate = self
         setup()
     }
     
@@ -48,8 +51,31 @@ extension MovieListViewController {
 }
 
 extension MovieListViewController: MovieListViewDelegate {
+    func search(query: String?) {
+        movieListInteractor?.requestMovies(query: query)
+    }
+    
     func movieSelected(movie: Movie) {
         
+    }
+
+}
+
+extension MovieListViewController : MovieListInteractorDelegate {
+    func showSpinner() {
+        
+    }
+    
+    func hideSpinner() {
+        
+    }
+    
+    func showErrorAlert() {
+        
+    }
+    
+    func displayMovies(movies: [Movie]) {
+        movieListView?.updateList(movies: movies)
     }
 
 }

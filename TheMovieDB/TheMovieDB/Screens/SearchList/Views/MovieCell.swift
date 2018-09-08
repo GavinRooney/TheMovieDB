@@ -69,12 +69,12 @@ extension MovieCell {
         background.top(to: contentView)
         background.left(to: contentView, offset: 10.0)
         background.bottom(to: contentView, offset: -10.0)
-        background.right(to: contentView, offset: -60.0)
+        background.right(to: contentView, offset: -10.0)
         
         foreground.top(to: contentView, offset: 15.0)
         foreground.bottom(to: contentView, offset: -25.0)
         foreground.left(to: contentView, offset: 80.0)
-        foreground.right(to: contentView, offset: -60.0)
+        foreground.right(to: contentView, offset: -15.0)
         
         mainLabel.left(to: foreground, offset: 15.0)
         mainLabel.right(to: foreground)

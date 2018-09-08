@@ -11,6 +11,7 @@ import TinyConstraints
 
 protocol MovieListViewDelegate {
     func movieSelected(movie: Movie)
+    func search(query: String?)
 }
 
 class MovieListView: UIView {
@@ -26,6 +27,7 @@ class MovieListView: UIView {
     private var bgImageView = UIImageView()
     private var bgTitleLabel = LargeFadedTitleLabel()
 
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -64,6 +66,7 @@ extension MovieListView {
         searchField.attributedPlaceholder = NSAttributedString(string: "SEARCH".localized, attributes: [
             .foregroundColor: Style.Colors.lightGrey,
             .font: Style.Fonts.ctaText!])
+        searchField.delegate = self
         searchField.font = Style.Fonts.cellText
         searchField.textColor = Style.Colors.lightGrey
         searchField.tintColor = Style.Colors.lightGrey
@@ -147,6 +150,15 @@ extension MovieListView: UITableViewDelegate {
         return 100
     }
     
+}
+
+extension MovieListView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        delegate?.search(query: textField.text)
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
 
