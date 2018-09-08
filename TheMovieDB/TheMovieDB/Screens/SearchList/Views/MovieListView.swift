@@ -36,7 +36,9 @@ class MovieListView: UIView {
 }
 
 extension MovieListView {
+    
     private func setup() {
+        setupSearch()
         setupbgImageView()
         setupBGTitleLabel()
         setupTitleLabel()
@@ -57,24 +59,37 @@ extension MovieListView {
         })
     }
     
-    func setupbgImageView () {
+    private func setupSearch() {
+        searchField.attributedPlaceholder = NSAttributedString(string: "SEARCH".localized, attributes: [
+            .foregroundColor: Style.Colors.lightGrey,
+            .font: Style.Fonts.ctaText!])
+        searchField.font = Style.Fonts.cellText
+        searchField.textColor = Style.Colors.lightGrey
+        searchField.tintColor = Style.Colors.lightGrey
+        addSubview(searchField)
+        searchField.returnKeyType = .search
+        addSubview(searchImageView)
+        searchImageView.image = UIImage(named: "search-icon")
+        
+    }
+    
+    private func setupbgImageView () {
         bgImageView.image =  UIImage(named: "bg-detail")
         bgImageView.alpha = 0.3
         addSubview(bgImageView)
     }
     
-    
-    func setupTitleLabel() {
+    private func setupTitleLabel() {
         addSubview(titleLabel)
         titleLabel.text = "MOVIES".localized
     }
     
-    func setupBGTitleLabel() {
+    private func setupBGTitleLabel() {
         addSubview(bgTitleLabel)
         bgTitleLabel.text = "MOVIES".localized
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         tableView.register(MovieCell.self, forCellReuseIdentifier: String(describing: MovieCell.self))
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
@@ -85,21 +100,32 @@ extension MovieListView {
         addSubview(tableView)
     }
     
-    fileprivate func setupConstraints() {
+    private func setupConstraints() {
         
         bgImageView.edgesToSuperview()
         
         titleLabel.centerX(to: self)
         titleLabel.top(to: self, offset: 30.0)
         
-        tableView.topToBottom(of: titleLabel, offset: 0.0)
-        tableView.bottom(to: self, offset: -50)
+        tableView.topToBottom(of: searchField, offset: 0.0)
+        tableView.bottom(to: self, offset: 0)
         tableView.trailing(to: self)
         tableView.leading(to: self)
         
-        bgTitleLabel.top(to: titleLabel, offset: 20.0)
+        bgTitleLabel.topToBottom(of: searchField, offset: 0.0)
         bgTitleLabel.trailing(to: self)
         bgTitleLabel.leading(to: self)
+        
+        searchImageView.left(to: self, offset: 20)
+        searchImageView.centerY(to: searchField)
+        searchImageView.width(20.0)
+        searchImageView.height(20.0)
+        
+        searchField.top(to: titleLabel, offset: 10.0)
+        searchField.leftToRight(of: searchImageView, offset: 10.0)
+        searchField.right(to: self, offset: -20.0)
+        searchField.height(50.0)
+        
     }
     
 }
