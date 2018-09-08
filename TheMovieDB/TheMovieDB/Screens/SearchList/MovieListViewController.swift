@@ -15,6 +15,7 @@ class MovieListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardOnTouch()
         self.movieListInteractor = MovieListInteractor()
         movieListInteractor?.delegate = self
         setup()
