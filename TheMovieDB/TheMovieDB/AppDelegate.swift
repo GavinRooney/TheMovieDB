@@ -20,16 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set up the settings bundle
         Settings.sharedInstance.setup()
         GenreManager.shared.setup()
+        MovieDBConfigManager.shared.setup()
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.makeKeyAndVisible()
         let temp = MovieListViewController()
         window!.rootViewController = temp
-
-        
-        
-       
-        
         
         return true
     }
@@ -46,12 +42,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        GenreManager.shared.checkForUpdates()
         
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        GenreManager.shared.checkForUpdates(key: kLastSavedTimeStampGenreKey)
+        MovieDBConfigManager.shared.checkForUpdates(key: kLastSavedTimeStampConfigKey)
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

@@ -55,3 +55,13 @@ struct MovieGenresResponse: Codable {
     }
 }
 
+struct MovieDBConfigResponse: Codable {
+    
+    let images: ImageConfig?
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.images = try container.decodeIfPresent(ImageConfig?.self, forKey: .images) ?? nil
+    }
+}
+

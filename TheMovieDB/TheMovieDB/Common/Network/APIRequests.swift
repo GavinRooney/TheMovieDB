@@ -47,3 +47,11 @@ class MovieGenreRequest: ApiRequest {
         super.init(method: .get, url: "genre/movie/list", parameters: nil)
     }
 }
+
+class MovieDBConfigRequest: ApiRequest {
+    
+    init() {
+        
+        super.init(method: .get, url: "configuration", parameters: nil)
+    }
+}

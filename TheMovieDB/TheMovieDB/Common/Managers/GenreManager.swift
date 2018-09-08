@@ -8,23 +8,24 @@
 
 import Foundation
 
-let kLastSavedTimeStampKey = "moviedbLastSavedGenreList"
+let kLastSavedTimeStampGenreKey = "moviedbLastSavedGenreList"
 
-class GenreManager {
+class GenreManager: RemoteManager {
     
     static let shared = GenreManager()
-    var fileManager = FileManager()
     var genres : [Genre]?
     
-    let fileName = "genres"
-    let fileExtention = "json"
-    
-    init() {
+    override init() {
+        
+        super.init()
+        
+        self.fileName = "genres"
+        self.fileExtention = "json"
         
         // Check for local written file
         do {
             let documentDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor:nil, create:false)
-            let fileURL = documentDirectory.appendingPathComponent(fileName).appendingPathExtension(fileExtention)
+            let fileURL = documentDirectory.appendingPathComponent(fileName ?? "").appendingPathExtension(fileExtention ?? "")
             
             
             do {
@@ -42,25 +43,7 @@ class GenreManager {
         
     }
     
-    // stubbed setup
-    func setup() {
-        
-    }
-    
-    public func checkForUpdates () {
-        let defaults = UserDefaults.standard
 
-        let lastSaved = defaults.double(forKey: kLastSavedTimeStampKey)
-        if lastSaved > 0 {
-            let updateList = isUpdateNeeded(timeStamp: lastSaved)
-            if updateList {
-                self.updateGenres()
-            }
-        } else {
-            self.updateGenres()
-        }
-    }
-    
     public func getGenre(withID genreID: Int) -> Genre? {
         if let genres = self.genres {
             for genre in genres {
@@ -90,7 +73,7 @@ class GenreManager {
         return ""
     }
     
-    private func updateGenres () {
+    override func update () {
         GetGenresWorker().request(completion: { response in
             
             if let genres = response.genres, genres.count > 0 {
@@ -101,29 +84,11 @@ class GenreManager {
                 }
                 self.saveData(dataAsData)
                 let defaults = UserDefaults.standard
-                defaults.set(Date.timeIntervalSinceReferenceDate, forKey: kLastSavedTimeStampKey)
+                defaults.set(Date.timeIntervalSinceReferenceDate, forKey: kLastSavedTimeStampGenreKey)
             }
         }, failure: { error in
             
         })
-    }
-    
-    private func isUpdateNeeded (timeStamp: Double) -> Bool {
-        
-        let calendar = NSCalendar.current
-        let date = Date(timeIntervalSinceReferenceDate: timeStamp)
-        
-        let startOfNow = calendar.startOfDay(for: Date())
-        let startOfTimeStamp = calendar.startOfDay(for: date)
-        let components = calendar.dateComponents([.day], from: startOfNow, to: startOfTimeStamp)
-        let day = components.day!
-        // if day is in the past and the absolute value of it is > = 5 then we should call api to update the list
-        // I have give arbitrary time of 5 days between updates to highlight a possible use case
-        if day < 1 && abs(day) >= 5 {
-            return true
-        }
-        
-        return false
     }
     
     private func readLocalBundledGenres () -> [Genre]? {
@@ -147,23 +112,5 @@ class GenreManager {
         
     }
     
-    private func saveData(_ data: Data) {
-        
-        do {
-            let documentDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor:nil, create:true)
-            let fileURL = documentDirectory.appendingPathComponent(fileName).appendingPathExtension(fileExtention)
-            
-            do {
-                // Write contents to file
-                try data.write(to:fileURL)
-            }
-            catch let error as NSError {
-                print("An error took place: \(error)")
-            }
-        } catch {
-            print(error)
-        }
-        
-    }
     
 }
