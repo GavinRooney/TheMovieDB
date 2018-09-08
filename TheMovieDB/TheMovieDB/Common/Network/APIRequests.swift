@@ -36,6 +36,14 @@ class SearchMoviesRequest: ApiRequest {
     
     init(query: String, page: Int = 1) {
         
-        super.init(method: .post, url: "search/movie?query=\(query)&page=\(page)", parameters: nil)
+        super.init(method: .get, url: "search/movie?query=\(query)&page=\(page)", parameters: nil)
+    }
+}
+
+class MovieGenreRequest: ApiRequest {
+    
+    init() {
+        
+        super.init(method: .get, url: "genre/movie/list", parameters: nil)
     }
 }

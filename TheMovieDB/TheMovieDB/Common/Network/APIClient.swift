@@ -37,6 +37,9 @@ class ApiAdapter: RequestAdapter {
         if let url = urlRequest.url, var components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
             
             let queryItemKey = URLQueryItem(name: "api_key", value: APIKey)
+            if components.queryItems == nil {
+                components.queryItems = [URLQueryItem]()
+            }
             components.queryItems?.append(queryItemKey)
             urlRequest.url = components.url
         }

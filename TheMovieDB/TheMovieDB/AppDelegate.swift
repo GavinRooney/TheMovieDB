@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Set up the settings bundle
         Settings.sharedInstance.setup()
-        
+        GenreManager.shared.setup()
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.makeKeyAndVisible()
@@ -46,6 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        GenreManager.shared.checkForUpdates()
+        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

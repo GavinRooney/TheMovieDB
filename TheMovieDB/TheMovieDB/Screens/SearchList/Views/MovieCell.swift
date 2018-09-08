@@ -107,7 +107,7 @@ extension MovieCell {
 extension MovieCell: ConfigurableCell {
     func configure(_ item: Movie, at indexPath: IndexPath) {
         titleLabel.text = item.title
-        genreLabel.text = item.ge
+        genreLabel.text = item.overview
     }
 }
 

@@ -43,3 +43,15 @@ struct SearchMoviesListResponse: Codable {
         
     }
 }
+
+struct MovieGenresResponse: Codable {
+    
+    let genres: [Genre]?
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.genres = try container.decodeIfPresent([Genre]?.self, forKey: .genres) ?? nil
+        
+    }
+}
+
