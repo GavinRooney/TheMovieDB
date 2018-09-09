@@ -8,8 +8,6 @@
 
 import UIKit
 
-//import Material
-
 final class Style {}
 
 extension Style {
@@ -48,7 +46,7 @@ extension Style {
         static let ctaText = UIFont(name: Names.nevis, size: Sizes.xMedium)
         static let inputText = UIFont(name: Names.muliRegular, size: Sizes.xMedium)
         static let cellText = UIFont(name: Names.nevis, size: Sizes.large)
-        static let pinText = UIFont(name: Names.nevis, size: Sizes.xLarge)
+
     }
 }
 

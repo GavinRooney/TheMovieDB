@@ -131,6 +131,41 @@ class TheMovieDBAPITests: XCTestCase {
         
         waitForExpectations(timeout: 5, handler: nil)
     }
+    
+    func testGetConfigAPIResponse() {
+        
+        let worker = GetMovieDBConfigWorker()
+        let promise = expectation(description: "Status code: 200")
+        
+        worker.request(completion: { response in
+            
+            guard response.images != nil else {
+                return
+            }
+            
+            
+            if let imagesConfig = response.images {
+                guard imagesConfig.secureBaseUrl != nil else {
+                    return
+                }
+                guard imagesConfig.baseUrl != nil else {
+                    return
+                }
+                guard imagesConfig.posterSizes != nil else {
+                    return
+                }
+                
+            }
+            
+            promise.fulfill()
+            
+        }) { error in
+            
+        }
+        
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+
 
     
 }
