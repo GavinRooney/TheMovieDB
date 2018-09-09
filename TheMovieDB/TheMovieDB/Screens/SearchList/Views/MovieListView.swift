@@ -10,7 +10,7 @@ import UIKit
 import TinyConstraints
 
 protocol MovieListViewDelegate {
-    func movieSelected(movie: Movie)
+    func movieSelected(_ movie: Movie?)
     func search(query: String?)
 }
 
@@ -164,7 +164,8 @@ extension MovieListView {
 extension MovieListView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+        let movie = dataSource?.item(at: indexPath)
+        delegate?.movieSelected(movie)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

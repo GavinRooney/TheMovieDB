@@ -57,8 +57,10 @@ extension MovieListViewController: MovieListViewDelegate {
         movieListInteractor?.requestMovies(query: query)
     }
     
-    func movieSelected(movie: Movie) {
-        
+    func movieSelected(_ movie: Movie?) {
+        if let movie = movie {
+            
+        }
     }
 
 }
