@@ -19,6 +19,7 @@ class MovieListViewController: UIViewController {
         self.movieListInteractor = MovieListInteractor()
         movieListInteractor?.delegate = self
         setup()
+        movieListInteractor?.initaliseMovieList()
     }
     
     override func viewWillAppear(_ animated: Bool) {

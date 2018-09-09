@@ -19,6 +19,15 @@ class MovieListInteractor {
     
     weak var delegate: MovieListInteractorDelegate?
     
+    func initaliseMovieList() {
+        StorageManager.getStoredMovieList { movies in
+            DispatchQueue.main.async {
+                self.delegate?.displayMovies(movies:movies)
+            }
+        }
+    }
+    
+    
     func requestMovies(query: String?) {
         let worker = GetMoviesWorker()
 
@@ -27,6 +36,8 @@ class MovieListInteractor {
             if let results = response.results {
                 // Business logic here that requires the list ordered by popularity
                 self.delegate?.displayMovies(movies: self.sortByPopularity(results: results))
+                StorageManager.storeMovieQuery(query ?? "")
+                StorageManager.storeMovieList(movieList: results)
             } else {
                 self.delegate?.displayMovies(movies:nil)
             }
