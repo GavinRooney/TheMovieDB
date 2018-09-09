@@ -99,6 +99,16 @@ extension MovieDBConfigManager {
         
     }
     
+    func downloadBannerImageUrl(fileName : String?) -> URL? {
+
+        if let fileName = fileName, let config = self.movieDBConfig, let imageConfig = config.images, let baseUrl = imageConfig.secureBaseUrl, let bannerSize = imageConfig.backdropSizes?.first {
+            let fullPath = baseUrl + bannerSize + fileName
+            return URL(string: fullPath)
+        }
+        return nil
+        
+    }
+    
     
     
 }

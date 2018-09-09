@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TinyConstraints
 
 class MovieDetailViewController: UIViewController {
     
@@ -30,6 +31,10 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        edgesForExtendedLayout = []
+        view.backgroundColor = Style.Colors.white
+        addBackground()
+        movieDetailView.configureView(movie: (interactor?.movie)! )
         interactor?.requestMovieDetail()
         replaceBackButton()
     }
@@ -59,7 +64,9 @@ extension MovieDetailViewController {
     }
     
     private func setupConstraints() {
-        movieDetailView.edges(to: view)
+    
+        movieDetailView.edgesToSuperview()
+    
     }
 }
 
@@ -77,7 +84,7 @@ extension MovieDetailViewController : MovieDetailInteractorDelegate {
     }
     
     func updateMovieDetail(_ movie: Movie) {
-        
+        movieDetailView.configureView(movie: (interactor?.movie)! )
     }
     
     
