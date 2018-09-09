@@ -10,7 +10,7 @@ import Foundation
 
 let kLastSavedTimeStampGenreKey = "moviedbLastSavedGenreList"
 
-class GenreManager: RemoteManager {
+class GenreManager: RemoteUpdater {
     
     static let shared = GenreManager()
     var genres : [Genre]?

@@ -10,7 +10,7 @@ import Foundation
 
 let kLastSavedTimeStampConfigKey = "moviedbLastSavedConfig"
 
-class MovieDBConfigManager: RemoteManager {
+class MovieDBConfigManager: RemoteUpdater {
     
     static let shared = MovieDBConfigManager()
     var movieDBConfig : MovieDBConfigResponse?
@@ -82,6 +82,23 @@ class MovieDBConfigManager: RemoteManager {
         return configResponse
         
     }
+    
+    
+}
+
+extension MovieDBConfigManager {
+    
+    func downloadThumbnailImageUrl(fileName : String?) -> URL? {
+        // confirm that we have everything we need to make a valid url
+        // I will always use smallest poster size in this case
+        if let fileName = fileName, let config = self.movieDBConfig, let imageConfig = config.images, let baseUrl = imageConfig.secureBaseUrl, let posterSize = imageConfig.posterSizes?.first {
+            let fullPath = baseUrl + posterSize + fileName
+            return URL(string: fullPath)
+        }
+        return nil
+        
+    }
+    
     
     
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 
-class RemoteManager {
+class RemoteUpdater {
 
     var fileManager = FileManager()
     var fileName:String?

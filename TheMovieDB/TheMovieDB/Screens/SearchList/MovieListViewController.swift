@@ -75,7 +75,7 @@ extension MovieListViewController : MovieListInteractorDelegate {
         
     }
     
-    func displayMovies(movies: [Movie]) {
+    func displayMovies(movies: [Movie]?) {
         movieListView?.updateList(movies: movies)
     }
 

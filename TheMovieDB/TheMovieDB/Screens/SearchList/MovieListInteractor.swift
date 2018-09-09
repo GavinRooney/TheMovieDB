@@ -12,7 +12,7 @@ protocol MovieListInteractorDelegate: class {
     func showSpinner()
     func hideSpinner()
     func showErrorAlert()
-    func displayMovies(movies: [Movie])
+    func displayMovies(movies: [Movie]?)
 }
 
 class MovieListInteractor {
@@ -28,7 +28,7 @@ class MovieListInteractor {
                 // Business logic here that requires the list ordered by popularity
                 self.delegate?.displayMovies(movies: self.sortByPopularity(results: results))
             } else {
-                self.delegate?.displayMovies(movies: [])
+                self.delegate?.displayMovies(movies:nil)
             }
             
         }, failure: { error in

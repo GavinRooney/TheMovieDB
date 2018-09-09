@@ -7,9 +7,8 @@
 //
 
 import UIKit
-
 import TinyConstraints
-
+import AlamofireImage
 
 class MovieCell: UITableViewCell {
     
@@ -140,6 +139,18 @@ extension MovieCell: ConfigurableCell {
         } else {
             popularityLabel.text = ""
         }
+        
+        // important to cancel any previous image requests so that slow downloads do not affect the posters while scrolling
+        thumbnailView.af_cancelImageRequest()
+        
+        let url = MovieDBConfigManager.shared.downloadThumbnailImageUrl(fileName: item.posterPath)
+        let placeholderImage = UIImage(named: "placeholder")!
+        if let url = url {
+            thumbnailView.af_setImage(withURL: url, placeholderImage: placeholderImage)
+        } else {
+            thumbnailView.image = placeholderImage
+        }
+        
         
     }
 }

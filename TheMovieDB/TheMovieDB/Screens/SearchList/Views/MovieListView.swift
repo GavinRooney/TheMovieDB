@@ -134,8 +134,12 @@ extension MovieListView {
 }
 
 extension MovieListView {
-    func updateList(movies: [Movie]) {
-        dataSource = MovieListDataSource(tableView: tableView, array: movies, showSectionIndex: false)
+    func updateList(movies: [Movie]?) {
+        if let movies = movies {
+            dataSource = MovieListDataSource(tableView: tableView, array: movies, showSectionIndex: false)
+        } else {
+            dataSource = MovieListDataSource(tableView: tableView, array: [Movie](), showSectionIndex: false)
+        }
         tableView.reloadData()
     }
 }
