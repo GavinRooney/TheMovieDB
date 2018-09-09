@@ -33,7 +33,6 @@
 		8617076B2142E2E2004680C1 /* JSONHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707432142CA81004680C1 /* JSONHelpers.swift */; };
 		8617076E2142E405004680C1 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8617076D2142E405004680C1 /* Movie.swift */; };
 		8617076F2142E409004680C1 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8617076D2142E405004680C1 /* Movie.swift */; };
-		861707702142E409004680C1 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8617076D2142E405004680C1 /* Movie.swift */; };
 		861707742143C0D4004680C1 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707732143C0D4004680C1 /* MovieListViewController.swift */; };
 		861707772143C222004680C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707762143C222004680C1 /* ViewController.swift */; };
 		8617077A2143C424004680C1 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707792143C424004680C1 /* MovieListView.swift */; };
@@ -55,39 +54,23 @@
 		861707A021440069004680C1 /* GenreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8617079B2143F1DE004680C1 /* GenreManager.swift */; };
 		861707A12144006F004680C1 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707982143F103004680C1 /* Genre.swift */; };
 		861707A721441010004680C1 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707A621441010004680C1 /* Date.swift */; };
-		861707A821441010004680C1 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707A621441010004680C1 /* Date.swift */; };
 		861707A921441010004680C1 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707A621441010004680C1 /* Date.swift */; };
 		861707AB2144181C004680C1 /* MovieDBConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707AA2144181C004680C1 /* MovieDBConfigManager.swift */; };
-		861707AC2144181C004680C1 /* MovieDBConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707AA2144181C004680C1 /* MovieDBConfigManager.swift */; };
 		861707AD2144181C004680C1 /* MovieDBConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707AA2144181C004680C1 /* MovieDBConfigManager.swift */; };
 		861707AF2144184F004680C1 /* RemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707AE2144184F004680C1 /* RemoteManager.swift */; };
-		861707B02144184F004680C1 /* RemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707AE2144184F004680C1 /* RemoteManager.swift */; };
 		861707B12144184F004680C1 /* RemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707AE2144184F004680C1 /* RemoteManager.swift */; };
 		861707B321441D13004680C1 /* ImageConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707B221441D13004680C1 /* ImageConfig.swift */; };
-		861707B421441D13004680C1 /* ImageConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707B221441D13004680C1 /* ImageConfig.swift */; };
 		861707B521441D13004680C1 /* ImageConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707B221441D13004680C1 /* ImageConfig.swift */; };
 		861707B721441EC0004680C1 /* GetMovieDBConfigWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707B621441EC0004680C1 /* GetMovieDBConfigWorker.swift */; };
-		861707B821441EC0004680C1 /* GetMovieDBConfigWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707B621441EC0004680C1 /* GetMovieDBConfigWorker.swift */; };
 		861707B921441EC0004680C1 /* GetMovieDBConfigWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707B621441EC0004680C1 /* GetMovieDBConfigWorker.swift */; };
 		861707BB21441FDD004680C1 /* moviedbconfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 861707BA21441FDD004680C1 /* moviedbconfig.json */; };
 		861707BC21441FDD004680C1 /* moviedbconfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 861707BA21441FDD004680C1 /* moviedbconfig.json */; };
 		861707BD21441FDD004680C1 /* moviedbconfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 861707BA21441FDD004680C1 /* moviedbconfig.json */; };
-		861707BE2145207C004680C1 /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707472142CA9F004680C1 /* APIResponses.swift */; };
-		861707BF2145207F004680C1 /* APIRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707452142CA93004680C1 /* APIRequests.swift */; };
-		861707C021452083004680C1 /* JSONHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707432142CA81004680C1 /* JSONHelpers.swift */; };
-		861707C121452086004680C1 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707412142C9D5004680C1 /* APIClient.swift */; };
-		861707C221453371004680C1 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707982143F103004680C1 /* Genre.swift */; };
-		861707C321453388004680C1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707382142C081004680C1 /* Settings.swift */; };
-		861707C5214533B6004680C1 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8617074A2142CC00004680C1 /* String.swift */; };
 		861707C821453C50004680C1 /* movie1.json in Resources */ = {isa = PBXBuildFile; fileRef = 861707C721453C50004680C1 /* movie1.json */; };
 		861707CD21453FC5004680C1 /* movie3.json in Resources */ = {isa = PBXBuildFile; fileRef = 861707CA21453FC4004680C1 /* movie3.json */; };
 		861707CE21453FC5004680C1 /* movie4.json in Resources */ = {isa = PBXBuildFile; fileRef = 861707CB21453FC4004680C1 /* movie4.json */; };
 		861707CF21453FC5004680C1 /* movie2.json in Resources */ = {isa = PBXBuildFile; fileRef = 861707CC21453FC4004680C1 /* movie2.json */; };
-		861707D02145440D004680C1 /* MovieListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707942143D95F004680C1 /* MovieListInteractor.swift */; };
-		861707D121454491004680C1 /* GetMoviesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707542142D5DA004680C1 /* GetMoviesWorker.swift */; };
-		861707D221454495004680C1 /* GetGenresWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707962143F051004680C1 /* GetGenresWorker.swift */; };
 		861707D521454590004680C1 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707D421454590004680C1 /* StorageManager.swift */; };
-		861707D621454BB8004680C1 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707D421454590004680C1 /* StorageManager.swift */; };
 		D42D03BB9C0AACAFFD3436D6 /* Pods_TheMovieDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1013E700B5C622D2CD2146A0 /* Pods_TheMovieDBTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -769,24 +752,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				861707B02144184F004680C1 /* RemoteManager.swift in Sources */,
-				861707BE2145207C004680C1 /* APIResponses.swift in Sources */,
-				861707C321453388004680C1 /* Settings.swift in Sources */,
-				861707D621454BB8004680C1 /* StorageManager.swift in Sources */,
-				861707B821441EC0004680C1 /* GetMovieDBConfigWorker.swift in Sources */,
-				861707D221454495004680C1 /* GetGenresWorker.swift in Sources */,
-				861707C5214533B6004680C1 /* String.swift in Sources */,
-				861707C221453371004680C1 /* Genre.swift in Sources */,
-				861707AC2144181C004680C1 /* MovieDBConfigManager.swift in Sources */,
-				861707D02145440D004680C1 /* MovieListInteractor.swift in Sources */,
-				861707BF2145207F004680C1 /* APIRequests.swift in Sources */,
-				861707C121452086004680C1 /* APIClient.swift in Sources */,
-				861707702142E409004680C1 /* Movie.swift in Sources */,
-				861707B421441D13004680C1 /* ImageConfig.swift in Sources */,
 				8617072721402EBD004680C1 /* TheMovieDBTests.swift in Sources */,
-				861707D121454491004680C1 /* GetMoviesWorker.swift in Sources */,
-				861707A821441010004680C1 /* Date.swift in Sources */,
-				861707C021452083004680C1 /* JSONHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

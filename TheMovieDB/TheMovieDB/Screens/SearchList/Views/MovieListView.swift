@@ -142,6 +142,10 @@ extension MovieListView {
         }
         tableView.reloadData()
     }
+    
+    func updateSearchField(query : String) {
+        searchField.text = query
+    }
 }
 
 extension MovieListView: UITableViewDelegate {

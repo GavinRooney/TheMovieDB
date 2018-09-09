@@ -13,6 +13,7 @@ protocol MovieListInteractorDelegate: class {
     func hideSpinner()
     func showErrorAlert()
     func displayMovies(movies: [Movie]?)
+    func displayLastQuery(_ query : String)
 }
 
 class MovieListInteractor {
@@ -23,6 +24,8 @@ class MovieListInteractor {
         StorageManager.getStoredMovieList { movies in
             DispatchQueue.main.async {
                 self.delegate?.displayMovies(movies:movies)
+                let lastQuery = StorageManager.getLastMovieQuery() ?? ""
+                self.delegate?.displayLastQuery(lastQuery)
             }
         }
     }
@@ -37,7 +40,7 @@ class MovieListInteractor {
                 // Business logic here that requires the list ordered by popularity
                 self.delegate?.displayMovies(movies: self.sortByPopularity(results: results))
                 StorageManager.storeMovieQuery(query ?? "")
-                StorageManager.storeMovieList(movieList: results)
+                StorageManager.storeMovieList(movieList: results, complete: nil)
             } else {
                 self.delegate?.displayMovies(movies:nil)
             }

@@ -45,7 +45,7 @@ class StorageManager {
         return UserDefaults.standard.string(forKey: kLastSavedMovieQuery)
     }
     
-    static func storeMovieList(movieList :[Movie]) {
+    static func storeMovieList(movieList :[Movie], complete: (() -> Void)? = nil) {
         
         
         DispatchQueue(label: "background").async {
@@ -59,6 +59,9 @@ class StorageManager {
                     try! realm.write {
                         realm.add(movieDataStore, update: true)
                     }
+                }
+                if let complete = complete {
+                    complete()
                 }
             }
         }

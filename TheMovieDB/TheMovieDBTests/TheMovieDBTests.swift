@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import RealmSwift
 @testable import TheMovieDB
 
 
@@ -17,6 +18,12 @@ class TheMovieDBTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        // This should be in a separate file specifically for core data unit tests as it is not needed to clear db for all other tests in this file
+        Realm.Configuration.defaultConfiguration.inMemoryIdentifier = "Movie Test DB"
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
+        }
     }
     
     override func tearDown() {
@@ -82,6 +89,39 @@ extension TheMovieDBTests {
         
     }
     
+}
+
+// Mark: - Storage tests
+extension TheMovieDBTests {
+    
+    func test_storingList() {
+        
+        let movie1 = createMovie(fileName: "movie1")!
+        let movie2 = createMovie(fileName: "movie2")!
+        let movie3 = createMovie(fileName: "movie3")!
+        let movie4 = createMovie(fileName: "movie4")!
+        
+        
+        let list = [movie1, movie2, movie3, movie4]
+       
+        let promise = expectation(description: "Storage retrieved")
+        
+        StorageManager.storeMovieList(movieList: list, complete: {
+            StorageManager.getStoredMovieList { movies in
+                XCTAssertEqual(movie1.id, movies[0].id)
+                XCTAssertEqual(movie2.id, movies[1].id)
+                XCTAssertEqual(movie3.id, movies[2].id)
+                XCTAssertEqual(movie4.id, movies[3].id)
+                
+                promise.fulfill()
+            }
+        })
+        
+        
+        
+        
+        waitForExpectations(timeout: 5, handler: nil)
+    }
 }
 
 // Mark: Helpers

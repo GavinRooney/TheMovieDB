@@ -64,6 +64,10 @@ extension MovieListViewController: MovieListViewDelegate {
 }
 
 extension MovieListViewController : MovieListInteractorDelegate {
+    func displayLastQuery(_ query: String) {
+        movieListView.updateSearchField(query: query)
+    }
+    
     func showSpinner() {
         
     }
