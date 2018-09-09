@@ -17,7 +17,7 @@ class MovieDetailView: UIView {
 
     private let scrollView = UIScrollView()
     private let bannerView = UIImageView()
-   // private let foreground = UIView()
+    private let overviewLabel = SecondarySelectionLabel()
     private let titleLabel = HeaderLabel()
     private let taglineLabel = SecondarySelectionLabel()
     private let genreLabel = SecondarySelectionLabel()
@@ -52,6 +52,7 @@ class MovieDetailView: UIView {
         setupRuntimeLabel()
         setupLanguageLabel()
         createHomePageText()
+        setupOverviewLabel()
         setupConstraints()
         
     }
@@ -65,6 +66,8 @@ class MovieDetailView: UIView {
         scrollView.layer.cornerRadius = 4.0
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        
         scrollView.delegate = self
         scrollView.backgroundColor = Style.Colors.blue
     }
@@ -115,6 +118,15 @@ class MovieDetailView: UIView {
         revenueLabel.textColor = Style.Colors.white
     }
     
+    private func setupOverviewLabel() {
+        scrollView.addSubview(overviewLabel)
+        overviewLabel.textColor = .black
+        overviewLabel.backgroundColor = Style.Colors.white
+        overviewLabel.layer.cornerRadius = 4.0
+        overviewLabel.numberOfLines = 0
+        
+    }
+    
     private func setupLanguageLabel() {
         scrollView.addSubview(languageLabel)
         languageLabel.textColor = Style.Colors.white
@@ -137,7 +149,6 @@ class MovieDetailView: UIView {
         
         scrollView.top(to: self, offset: yPadding)
         scrollView.left(to: self, offset: xPadding)
-        scrollView.bottom(to: self, offset: 0)
         scrollView.right(to: self, offset: -xPadding)
         
         bannerView.top(to: self, offset: yPadding)
@@ -182,7 +193,12 @@ class MovieDetailView: UIView {
         homepageTextView.topToBottom(of: languageLabel, offset: 5.0)
         homepageTextView.height(25)
         
-    
+        overviewLabel.left(to: bannerView, offset: xPadding)
+        overviewLabel.right(to: bannerView, offset: -xPadding)
+        overviewLabel.topToBottom(of: homepageTextView, offset: 5.0)
+        
+        scrollView.bottom(to: overviewLabel, offset: 0)
+        
     }
     
 }
@@ -229,7 +245,11 @@ extension MovieDetailView {
             homepageTextView.setLink(homepage, onText: "CHECK_THEIR_WEBSITE".localized)
         }
         
-        scrollView.contentSize = CGSize(width: 0, height: titleLabel.frame.maxY)
+        if let overview = movie.overview {
+            overviewLabel.text = overview + overview + overview
+        }
+        
+        scrollView.contentSize = CGSize(width: 0, height: overviewLabel.frame.maxY + self.frame.minY)
     }
 }
 
