@@ -28,7 +28,7 @@ class TheMovieDBAPITests: XCTestCase {
         let moviesWorker = GetMoviesWorker()
         let promise = expectation(description: "Status code: 200")
         
-        moviesWorker.request(query: "batman", page: 1, completion: { response in
+        moviesWorker.requestList(query: "batman", page: 1, completion: { response in
             
             guard response.page != nil else {
                 return

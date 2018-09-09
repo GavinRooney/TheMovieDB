@@ -29,5 +29,16 @@ extension UIViewController {
         self.view.addSubview(image)
         self.view.sendSubview(toBack: image)
     }
+    
+    func replaceBackButton() {
+        navigationItem.hidesBackButton = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back-arrow"), style: .plain, target: self, action: #selector(backTapped))
+        navigationItem.leftBarButtonItem?.imageInsets = UIEdgeInsetsMake(0, -6, 0, 0)
+    }
+    
+    @objc func backTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+
 }
 

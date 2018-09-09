@@ -27,16 +27,18 @@ class ApiRequest {
 
 class SearchMoviesRequest: ApiRequest {
     
-    private struct Parameters: Encodable {
-        
-        var query: String
-        var page: Int
-        
-    }
-    
     init(query: String, page: Int = 1) {
         
         super.init(method: .get, url: "search/movie?query=\(query)&page=\(page)", parameters: nil)
+    }
+}
+
+class MovieDetailRequest: ApiRequest {
+    
+    
+    init(movieID: String) {
+        
+        super.init(method: .get, url: "movie/\(movieID)", parameters: nil)
     }
 }
 

@@ -10,7 +10,7 @@ import UIKit
 
 class MovieListViewController: UIViewController {
     
-    private var movieListView: MovieListView!
+    private var movieListView = MovieListView()
     private var movieListInteractor: MovieListInteractor?
     
     override func viewDidLoad() {
@@ -34,21 +34,28 @@ class MovieListViewController: UIViewController {
 }
 
 extension MovieListViewController {
+    
     private func setup() {
         view.backgroundColor = Style.Colors.white
-        setupMyListsView()
+        setupMovieListsView()
         setupConstraints()
-        
     }
     
-    private func setupMyListsView() {
-        movieListView = MovieListView()
+    private func setupMovieListsView() {
         movieListView.delegate = self
         view.addSubview(movieListView)
     }
     
     private func setupConstraints() {
         movieListView.edges(to: view)
+    }
+    
+    private func addClearHistoryButton () {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "x-white"), style: .plain, target: self, action: #selector(clearHistoryTapped))
+    }
+    
+    @objc private func clearHistoryTapped () {
+        
     }
 }
 
@@ -59,7 +66,8 @@ extension MovieListViewController: MovieListViewDelegate {
     
     func movieSelected(_ movie: Movie?) {
         if let movie = movie {
-            
+            let vc = MovieDetailViewController(movie)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 
@@ -83,7 +91,7 @@ extension MovieListViewController : MovieListInteractorDelegate {
     }
     
     func displayMovies(movies: [Movie]?) {
-        movieListView?.updateList(movies: movies)
+        movieListView.updateList(movies: movies)
     }
 
 }

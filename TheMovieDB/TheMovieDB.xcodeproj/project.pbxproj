@@ -71,6 +71,10 @@
 		861707CE21453FC5004680C1 /* movie4.json in Resources */ = {isa = PBXBuildFile; fileRef = 861707CB21453FC4004680C1 /* movie4.json */; };
 		861707CF21453FC5004680C1 /* movie2.json in Resources */ = {isa = PBXBuildFile; fileRef = 861707CC21453FC4004680C1 /* movie2.json */; };
 		861707D521454590004680C1 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707D421454590004680C1 /* StorageManager.swift */; };
+		861707DA214558E0004680C1 /* movie1Detail.json in Resources */ = {isa = PBXBuildFile; fileRef = 861707D9214558E0004680C1 /* movie1Detail.json */; };
+		861707DD21455D52004680C1 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707DC21455D52004680C1 /* MovieDetailViewController.swift */; };
+		861707E021455D69004680C1 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707DF21455D69004680C1 /* MovieDetailView.swift */; };
+		861707E221456334004680C1 /* MovieDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707E121456334004680C1 /* MovieDetailInteractor.swift */; };
 		D42D03BB9C0AACAFFD3436D6 /* Pods_TheMovieDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1013E700B5C622D2CD2146A0 /* Pods_TheMovieDBTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +153,10 @@
 		861707CB21453FC4004680C1 /* movie4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movie4.json; sourceTree = "<group>"; };
 		861707CC21453FC4004680C1 /* movie2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movie2.json; sourceTree = "<group>"; };
 		861707D421454590004680C1 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		861707D9214558E0004680C1 /* movie1Detail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movie1Detail.json; sourceTree = "<group>"; };
+		861707DC21455D52004680C1 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		861707DF21455D69004680C1 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		861707E121456334004680C1 /* MovieDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailInteractor.swift; sourceTree = "<group>"; };
 		A52E1ADE453EF80F133EF3C7 /* Pods_TheMovieDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMovieDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEAD7CFD31485E00B3FC593 /* Pods-TheMovieDBAPITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDBAPITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieDBAPITests/Pods-TheMovieDBAPITests.release.xcconfig"; sourceTree = "<group>"; };
 		C785D41A7D62B2917E120341 /* Pods-TheMovieDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDB.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieDB/Pods-TheMovieDB.release.xcconfig"; sourceTree = "<group>"; };
@@ -361,6 +369,7 @@
 		861707712143C016004680C1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				861707DB21455D31004680C1 /* MovieDetail */,
 				861707722143C023004680C1 /* SearchList */,
 			);
 			path = Screens;
@@ -468,6 +477,7 @@
 		861707C621453A68004680C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				861707D9214558E0004680C1 /* movie1Detail.json */,
 				861707CC21453FC4004680C1 /* movie2.json */,
 				861707CA21453FC4004680C1 /* movie3.json */,
 				861707CB21453FC4004680C1 /* movie4.json */,
@@ -482,6 +492,24 @@
 				861707D421454590004680C1 /* StorageManager.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		861707DB21455D31004680C1 /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+				861707DE21455D58004680C1 /* Views */,
+				861707DC21455D52004680C1 /* MovieDetailViewController.swift */,
+				861707E121456334004680C1 /* MovieDetailInteractor.swift */,
+			);
+			path = MovieDetail;
+			sourceTree = "<group>";
+		};
+		861707DE21455D58004680C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				861707DF21455D69004680C1 /* MovieDetailView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -609,6 +637,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				861707CD21453FC5004680C1 /* movie3.json in Resources */,
+				861707DA214558E0004680C1 /* movie1Detail.json in Resources */,
 				861707BC21441FDD004680C1 /* moviedbconfig.json in Resources */,
 				861707CF21453FC5004680C1 /* movie2.json in Resources */,
 				861707C821453C50004680C1 /* movie1.json in Resources */,
@@ -718,7 +747,9 @@
 			files = (
 				861707522142CF47004680C1 /* AppConfig.swift in Sources */,
 				861707B721441EC0004680C1 /* GetMovieDBConfigWorker.swift in Sources */,
+				861707E021455D69004680C1 /* MovieDetailView.swift in Sources */,
 				861707392142C081004680C1 /* Settings.swift in Sources */,
+				861707E221456334004680C1 /* MovieDetailInteractor.swift in Sources */,
 				861707742143C0D4004680C1 /* MovieListViewController.swift in Sources */,
 				861707992143F103004680C1 /* Genre.swift in Sources */,
 				861707D521454590004680C1 /* StorageManager.swift in Sources */,
@@ -732,6 +763,7 @@
 				861707952143D95F004680C1 /* MovieListInteractor.swift in Sources */,
 				861707822143C61E004680C1 /* Label.swift in Sources */,
 				861707422142C9D5004680C1 /* APIClient.swift in Sources */,
+				861707DD21455D52004680C1 /* MovieDetailViewController.swift in Sources */,
 				861707462142CA93004680C1 /* APIRequests.swift in Sources */,
 				861707772143C222004680C1 /* ViewController.swift in Sources */,
 				861707482142CA9F004680C1 /* APIResponses.swift in Sources */,

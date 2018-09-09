@@ -34,7 +34,7 @@ class MovieListInteractor {
     func requestMovies(query: String?) {
         let worker = GetMoviesWorker()
 
-        worker.request(query: query ?? "", page: 1, completion: { response in
+        worker.requestList(query: query ?? "", page: 1, completion: { response in
             
             if let results = response.results {
                 // Business logic here that requires the list ordered by popularity
