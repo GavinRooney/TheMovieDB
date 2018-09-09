@@ -13,9 +13,9 @@ protocol MovieDetailViewDelegate {
     func linkTouched(url: URL)
 }
 
-class MovieDetailView: UIView {
+class MovieDetailView: UIScrollView {
 
-    private let scrollView = UIScrollView()
+    private let scrollView = UIView()
     private let bannerView = UIImageView()
     private let overviewLabel = SecondarySelectionLabel()
     private let titleLabel = HeaderLabel()
@@ -28,7 +28,7 @@ class MovieDetailView: UIView {
     private let languageLabel = SecondarySelectionLabel()
     private let homepageTextView = LinkText()
     
-    var delegate : MovieDetailViewDelegate?
+    var detailDelegate : MovieDetailViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -65,10 +65,10 @@ class MovieDetailView: UIView {
         addSubview(scrollView)
         scrollView.layer.cornerRadius = 4.0
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.showsHorizontalScrollIndicator = false
+        //scrollView.showsVerticalScrollIndicator = false
+       //scrollView.showsHorizontalScrollIndicator = false
         
-        scrollView.delegate = self
+        //scrollView.delegate = self
         scrollView.backgroundColor = Style.Colors.blue
     }
     
@@ -249,7 +249,7 @@ extension MovieDetailView {
             overviewLabel.text = overview + overview + overview
         }
         
-        scrollView.contentSize = CGSize(width: 0, height: overviewLabel.frame.maxY + self.frame.minY)
+        contentSize = CGSize(width: 0, height: overviewLabel.frame.maxY + self.frame.minY)
     }
 }
 
@@ -261,6 +261,6 @@ extension MovieDetailView: UIScrollViewDelegate {
 extension MovieDetailView: LinkTextDelegate {
     
     func linkTouched(url: URL) {
-        delegate?.linkTouched(url: url)
+        detailDelegate?.linkTouched(url: url)
     }
 }

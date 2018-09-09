@@ -61,7 +61,7 @@ extension MovieDetailViewController {
     private func setupMovieDetailView() {
 
         view.addSubview(movieDetailView)
-        movieDetailView.delegate = self
+       // movieDetailView.delegate = self
     }
     
     private func setupConstraints() {
