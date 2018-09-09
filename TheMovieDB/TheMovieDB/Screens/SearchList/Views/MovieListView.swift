@@ -27,6 +27,8 @@ class MovieListView: UIView {
     private var bgImageView = UIImageView()
     private var bgTitleLabel = LargeFadedTitleLabel()
 
+    private let refreshControl = UIRefreshControl()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -101,6 +103,10 @@ extension MovieListView {
         tableView.tableFooterView = UIView()
         tableView.contentInset = UIEdgeInsetsMake(85, 0, 0, 0)
         addSubview(tableView)
+        
+        tableView.refreshControl = refreshControl
+        
+        refreshControl.addTarget(self, action: #selector(refreshTransactions), for: .valueChanged)
     }
     
     private func setupConstraints() {
@@ -141,10 +147,17 @@ extension MovieListView {
             dataSource = MovieListDataSource(tableView: tableView, array: [Movie](), showSectionIndex: false)
         }
         tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     func updateSearchField(query : String) {
         searchField.text = query
+    }
+    
+    @objc private func refreshTransactions() {
+        if let query = StorageManager.getLastMovieQuery() {
+            delegate?.search(query: query)
+        }
     }
 }
 
