@@ -73,6 +73,21 @@ class GenreManager: RemoteUpdater {
         return ""
     }
     
+    public func constructGenreSentence(genres: [Genre]) -> String {
+        var genreText = ""
+        
+        for genre in genres {
+            if genreText.count > 0 {
+                genreText += ", " + (genre.name ?? "")
+            } else {
+                genreText = genre.name ?? ""
+            }
+            
+        }
+        return genreText
+
+    }
+    
     override func update () {
         GetGenresWorker().request(completion: { response in
             

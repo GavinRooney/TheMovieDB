@@ -13,3 +13,8 @@
 // Movie Content
 "MOVIES" = "Movies";
 "SEARCH" = "Search";
+"RUNTIME" = "Runtime: ";
+"MINS" = " Minutes";
+"REVENUE" = "Revenue: ";
+"LANGUAGE" = "Language: ";
+"CHECK_THEIR_WEBSITE" = "Check out their website now!";

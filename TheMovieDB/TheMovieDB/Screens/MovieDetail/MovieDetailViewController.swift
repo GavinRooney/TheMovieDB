@@ -61,6 +61,7 @@ extension MovieDetailViewController {
     private func setupMovieDetailView() {
 
         view.addSubview(movieDetailView)
+        movieDetailView.delegate = self
     }
     
     private func setupConstraints() {
@@ -89,3 +90,13 @@ extension MovieDetailViewController : MovieDetailInteractorDelegate {
     
     
 }
+
+extension MovieDetailViewController : MovieDetailViewDelegate {
+    func linkTouched(url: URL) {
+        
+    }
+    
+    
+}
+
+

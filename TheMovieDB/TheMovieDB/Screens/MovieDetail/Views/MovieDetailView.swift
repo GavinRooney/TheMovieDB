@@ -9,6 +9,10 @@
 import UIKit
 import TinyConstraints
 
+protocol MovieDetailViewDelegate {
+    func linkTouched(url: URL)
+}
+
 class MovieDetailView: UIView {
 
     private let scrollView = UIScrollView()
@@ -16,9 +20,15 @@ class MovieDetailView: UIView {
    // private let foreground = UIView()
     private let titleLabel = HeaderLabel()
     private let taglineLabel = SecondarySelectionLabel()
-   // private let genreLabel = SecondarySelectionLabel()
+    private let genreLabel = SecondarySelectionLabel()
     private let releaseYearLabel = HeaderLabel()
-   // private let popularityLabel = HeaderLabel()
+    private let popularityLabel = HeaderLabel()
+    private let runtimeLabel = SecondarySelectionLabel()
+    private let revenueLabel = SecondarySelectionLabel()
+    private let languageLabel = SecondarySelectionLabel()
+    private let homepageTextView = LinkText()
+    
+    var delegate : MovieDetailViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,10 +46,19 @@ class MovieDetailView: UIView {
         setupTitleLabel()
         setupTagLabel()
         setupYearLabel()
+        setupPopularityLabel()
+        setupGenreLabel()
+        setupRevenueLabel()
+        setupRuntimeLabel()
+        setupLanguageLabel()
+        createHomePageText()
         setupConstraints()
         
     }
 
+    func setHomePageLink(_ link: String, onText linkText: String) {
+        homepageTextView.setLink(link, onText: linkText)
+    }
     
     private func setupBackground() {
         addSubview(scrollView)
@@ -74,6 +93,42 @@ class MovieDetailView: UIView {
         releaseYearLabel.textAlignment = .right
     }
     
+    private func setupPopularityLabel() {
+        scrollView.addSubview(popularityLabel)
+        popularityLabel.textColor = Style.Colors.white
+        popularityLabel.textAlignment = .right
+    }
+    
+    private func setupGenreLabel() {
+        scrollView.addSubview(genreLabel)
+        genreLabel.textColor = Style.Colors.white
+        genreLabel.numberOfLines = 0
+    }
+    
+    private func setupRuntimeLabel() {
+        scrollView.addSubview(runtimeLabel)
+        runtimeLabel.textColor = Style.Colors.white
+    }
+    
+    private func setupRevenueLabel() {
+        scrollView.addSubview(revenueLabel)
+        revenueLabel.textColor = Style.Colors.white
+    }
+    
+    private func setupLanguageLabel() {
+        scrollView.addSubview(languageLabel)
+        languageLabel.textColor = Style.Colors.white
+    }
+    
+    private func createHomePageText() {
+        homepageTextView.font = Style.Fonts.cellText
+        homepageTextView.textColor = Style.Colors.green
+        homepageTextView.linkTextAttributes[NSAttributedStringKey.foregroundColor.rawValue] = Style.Colors.green
+        
+        homepageTextView.linkTextDelegate = self
+        scrollView.addSubview(homepageTextView)
+        homepageTextView.backgroundColor = .clear
+    }
     
     private func setupConstraints() {
         
@@ -102,6 +157,30 @@ class MovieDetailView: UIView {
         releaseYearLabel.left(to: bannerView, offset: xPadding)
         releaseYearLabel.right(to: bannerView, offset: -xPadding)
         
+        popularityLabel.left(to: bannerView, offset: xPadding)
+        popularityLabel.right(to: bannerView, offset: -xPadding)
+        popularityLabel.topToBottom(of: releaseYearLabel, offset: 5.0)
+        
+        genreLabel.left(to: bannerView, offset: xPadding)
+        genreLabel.right(to: bannerView, offset: -xPadding)
+        genreLabel.topToBottom(of: popularityLabel, offset: 5.0)
+        
+        runtimeLabel.left(to: bannerView, offset: xPadding)
+        runtimeLabel.right(to: bannerView, offset: -xPadding)
+        runtimeLabel.topToBottom(of: genreLabel, offset: 5.0)
+        
+        revenueLabel.left(to: bannerView, offset: xPadding)
+        revenueLabel.right(to: bannerView, offset: -xPadding)
+        revenueLabel.topToBottom(of: runtimeLabel, offset: 5.0)
+        
+        languageLabel.left(to: bannerView, offset: xPadding)
+        languageLabel.right(to: bannerView, offset: -xPadding)
+        languageLabel.topToBottom(of: revenueLabel, offset: 5.0)
+        
+        homepageTextView.left(to: bannerView, offset: xPadding)
+        homepageTextView.right(to: bannerView, offset: -xPadding)
+        homepageTextView.topToBottom(of: languageLabel, offset: 5.0)
+        homepageTextView.height(25)
         
     
     }
@@ -123,11 +202,45 @@ extension MovieDetailView {
             bannerView.image = placeholderImage
         }
         
-        scrollView.contentSize = CGSize(width: frame.width, height: titleLabel.frame.maxY)
+        if movie.genreIds != nil {
+            genreLabel.text = GenreManager.shared.constructGenreSentence(genreIDs: movie.genreIds)
+        } else if (movie.genres != nil) {
+            genreLabel.text = GenreManager.shared.constructGenreSentence(genres: movie.genres!)
+            
+        }
+        if let popularity = movie.popularity {
+            popularityLabel.text = String(popularity) + "%"
+        } else {
+            popularityLabel.text = ""
+        }
+        if let runtime = movie.runtime {
+            runtimeLabel.text = "RUNTIME".localized + String(runtime) + "MINS".localized
+        }
+        if let revenue = movie.revenue {
+            revenueLabel.text = "REVENUE".localized + String(revenue)
+        }
+        if let language = movie.originalLanguage {
+            languageLabel.text = "LANGUAGE".localized + language
+        }
+        
+        if let homepage = movie.homepage {
+            homepageTextView.text = "CHECK_THEIR_WEBSITE".localized
+            
+            homepageTextView.setLink(homepage, onText: "CHECK_THEIR_WEBSITE".localized)
+        }
+        
+        scrollView.contentSize = CGSize(width: 0, height: titleLabel.frame.maxY)
     }
 }
 
 
 extension MovieDetailView: UIScrollViewDelegate {
     
+}
+
+extension MovieDetailView: LinkTextDelegate {
+    
+    func linkTouched(url: URL) {
+        delegate?.linkTouched(url: url)
+    }
 }
