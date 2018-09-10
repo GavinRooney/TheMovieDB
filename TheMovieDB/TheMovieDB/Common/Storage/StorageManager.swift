@@ -51,6 +51,11 @@ class StorageManager {
         DispatchQueue(label: "background").async {
             autoreleasepool {
                 let realm = try! Realm()
+                
+                try! realm.write {
+                    realm.deleteAll()
+                }
+                
                 for movie in movieList {
                     let movieDataStore = MovieDataStore()
                     movieDataStore.movieData = movie

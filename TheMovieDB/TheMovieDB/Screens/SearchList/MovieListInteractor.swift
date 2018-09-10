@@ -23,7 +23,8 @@ class MovieListInteractor {
     func initaliseMovieList() {
         StorageManager.getStoredMovieList { movies in
             DispatchQueue.main.async {
-                self.delegate?.displayMovies(movies:movies)
+                // Business logic here that requires the list ordered by popularity
+                self.delegate?.displayMovies(movies:self.sortByPopularity(results: movies))
                 let lastQuery = StorageManager.getLastMovieQuery() ?? ""
                 self.delegate?.displayLastQuery(lastQuery)
             }
