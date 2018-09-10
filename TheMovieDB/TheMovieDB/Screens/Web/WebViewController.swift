@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class WebViewController: ModalViewController {
+class WebViewController: ModalViewController, AlertPresenter {
     
     private var webView = WKWebView()
     private var urlToLoad: URL?
@@ -63,12 +63,10 @@ class WebViewController: ModalViewController {
 
 extension WebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        if error._code == NSURLErrorNotConnectedToInternet {
-            
-        }
+        self.alert(message: "WEBSITE_FAILED".localized)
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-    
+        self.alert(message: "WEBSITE_FAILED".localized)
     }
 }
