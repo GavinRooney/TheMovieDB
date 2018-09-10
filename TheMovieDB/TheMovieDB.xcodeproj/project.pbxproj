@@ -14,7 +14,6 @@
 		8617071C21402EBD004680C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8617071A21402EBD004680C1 /* LaunchScreen.storyboard */; };
 		8617072721402EBD004680C1 /* TheMovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8617072621402EBD004680C1 /* TheMovieDBTests.swift */; };
 		861707392142C081004680C1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707382142C081004680C1 /* Settings.swift */; };
-		8617073E2142C313004680C1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8617073D2142C313004680C1 /* Settings.bundle */; };
 		861707422142C9D5004680C1 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707412142C9D5004680C1 /* APIClient.swift */; };
 		861707442142CA81004680C1 /* JSONHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707432142CA81004680C1 /* JSONHelpers.swift */; };
 		861707462142CA93004680C1 /* APIRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861707452142CA93004680C1 /* APIRequests.swift */; };
@@ -598,6 +597,7 @@
 				78E16D728E2E13880C85C4CF /* [CP] Check Pods Manifest.lock */,
 				8617070A21402EBB004680C1 /* Sources */,
 				8617070B21402EBB004680C1 /* Frameworks */,
+				862CA510214665FA00B08CCD /* Settings Bundle Script */,
 				8617070C21402EBB004680C1 /* Resources */,
 				0FFD878576A499D1DE10349E /* [CP] Embed Pods Frameworks */,
 			);
@@ -702,7 +702,6 @@
 				862CA50D21465CC600B08CCD /* loadingAnimation.json in Resources */,
 				8617074E2142CE56004680C1 /* Localizable.strings in Resources */,
 				862CA5032146560900B08CCD /* transitionIn.json in Resources */,
-				8617073E2142C313004680C1 /* Settings.bundle in Resources */,
 				8617078D2143CE3D004680C1 /* nevis.ttf in Resources */,
 				861707BB21441FDD004680C1 /* moviedbconfig.json in Resources */,
 				862CA5022146560900B08CCD /* loop.json in Resources */,
@@ -800,6 +799,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		862CA510214665FA00B08CCD /* Settings Bundle Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Settings Bundle Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${CONFIGURATION}\" != \"Release\" ]; then\ncp -r \"${PROJECT_DIR}/TheMovieDB/Settings/Settings.bundle\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\"\nfi";
 		};
 		F56D3735201698BAFA395925 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1080,6 +1093,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.safehouse.moviedb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

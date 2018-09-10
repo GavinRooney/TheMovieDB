@@ -60,7 +60,7 @@
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>Development</string>
+			<string>API URL</string>
 			<key>DefaultValue</key>
 			<string>https://api.themoviedb.org</string>
 			<key>Key</key>
@@ -70,7 +70,7 @@
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>Development</string>
+			<string>API KEY</string>
 			<key>DefaultValue</key>
 			<string>f6bc4463d8e9ec9c918a14177d782e67</string>
 			<key>Key</key>

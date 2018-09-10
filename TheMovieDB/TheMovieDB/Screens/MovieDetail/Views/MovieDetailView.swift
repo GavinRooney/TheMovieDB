@@ -256,7 +256,7 @@ extension MovieDetailView {
         }
         
         if let overview = movie.overview, overview.count > 0 {
-            overviewLabel.text = overview + overview + overview
+            overviewLabel.text = overview
             contentView.isHidden = false
         } else {
             contentView.isHidden = true
