@@ -97,7 +97,8 @@ extension MovieDetailViewController : MovieDetailInteractorDelegate {
 
 extension MovieDetailViewController : MovieDetailViewDelegate {
     func linkTouched(url: URL) {
-        
+        let webViewController = WebViewController(urlToLoad: url)
+        present(webViewController, animated: true, completion: nil)
     }
     
     
