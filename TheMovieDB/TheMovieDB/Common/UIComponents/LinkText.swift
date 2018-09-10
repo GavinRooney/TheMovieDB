@@ -36,7 +36,7 @@ class LinkText: UITextView, UITextViewDelegate {
         self.isEditable = false
         self.textContainerInset = .zero
         self.textAlignment = .center
-        self.font = Style.Fonts.cellText
+        self.font = Style.Fonts.linkText
         self.textColor = Style.Colors.white
         // set links text color
         self.linkTextAttributes[NSAttributedStringKey.foregroundColor.rawValue] = Style.Colors.green

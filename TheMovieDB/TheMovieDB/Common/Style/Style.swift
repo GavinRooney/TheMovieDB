@@ -45,7 +45,7 @@ extension Style {
         static let sCTAText = UIFont(name: Names.nevis, size: Sizes.medium)
         static let ctaText = UIFont(name: Names.nevis, size: Sizes.xMedium)
         static let inputText = UIFont(name: Names.muliRegular, size: Sizes.xMedium)
-        static let cellText = UIFont(name: Names.nevis, size: Sizes.large)
+        static let linkText = UIFont(name: Names.muliBold, size: Sizes.large)
 
     }
 }

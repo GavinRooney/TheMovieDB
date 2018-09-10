@@ -48,6 +48,10 @@ class MovieDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        movieDetailView.updateContentSize()
+    }
 }
 
 extension MovieDetailViewController {
@@ -61,7 +65,7 @@ extension MovieDetailViewController {
     private func setupMovieDetailView() {
 
         view.addSubview(movieDetailView)
-       // movieDetailView.delegate = self
+        movieDetailView.detailDelegate = self
     }
     
     private func setupConstraints() {

@@ -45,6 +45,31 @@ class SecondarySelectionLabel: BaseLabel {
     }
 }
 
+@IBDesignable class ContentLabel: BaseLabel {
+    
+    var topInset: CGFloat = 5.0
+    var bottomInset: CGFloat = 5.0
+    var leftInset: CGFloat = 7.0
+    var rightInset: CGFloat = 7.0
+    
+    override func setup() {
+        font = Style.Fonts.sCTAText
+        textColor = Style.Colors.lightGrey
+       // addTextSpacing(spacing: 2.0)
+    }
+    
+    override func drawText(in rect: CGRect) {
+        let insets = UIEdgeInsets.init(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+        super.drawText(in: UIEdgeInsetsInsetRect(rect, insets))
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        let size = super.intrinsicContentSize
+        return CGSize(width: size.width + leftInset + rightInset,
+                      height: size.height + topInset + bottomInset)
+    }
+}
+
 class LargeFadedTitleLabel: BaseLabel {
     override func setup() {
         font = Style.Fonts.largeHeaderText

@@ -69,7 +69,7 @@ extension MovieListView {
             .foregroundColor: Style.Colors.lightGrey,
             .font: Style.Fonts.ctaText!])
         searchField.delegate = self
-        searchField.font = Style.Fonts.cellText
+        searchField.font = Style.Fonts.linkText
         searchField.textColor = Style.Colors.lightGrey
         searchField.tintColor = Style.Colors.lightGrey
         addSubview(searchField)
