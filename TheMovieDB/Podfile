@@ -8,7 +8,8 @@ target 'TheMovieDB' do
   pod 'Alamofire', '4.6.0'
   pod 'AlamofireImage', '3.3.0'
   pod 'RealmSwift', '3.7.5'
-    
+  pod 'lottie-ios', '2.5.0'
+  
   target 'TheMovieDBTests' do
     inherit! :search_paths
     # Pods for testing

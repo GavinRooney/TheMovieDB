@@ -24,10 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.makeKeyAndVisible()
-        let vc = MovieListViewController()
-        let navVC = UINavigationController(rootViewController: vc)
-        window!.rootViewController = navVC
-        
+        AppRouter.loadSplash()
         return true
     }
 

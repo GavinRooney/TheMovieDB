@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.6.0)
   - AlamofireImage (3.3.0):
     - Alamofire (~> 4.5)
+  - lottie-ios (2.5.0)
   - Realm (3.7.5):
     - Realm/Headers (= 3.7.5)
   - Realm/Headers (3.7.5)
@@ -13,6 +14,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (= 4.6.0)
   - AlamofireImage (= 3.3.0)
+  - lottie-ios (= 2.5.0)
   - RealmSwift (= 3.7.5)
   - Reveal-SDK
   - TinyConstraints (= 3.1.0)
@@ -21,6 +23,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireImage
+    - lottie-ios
     - Realm
     - RealmSwift
     - Reveal-SDK
@@ -29,11 +32,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
+  lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   Realm: c286caf4dbf346ce24aad49ca76c7ce622d4a082
   RealmSwift: 2a9281e37d6de55f66f76254d49d28aeb1b729e4
   Reveal-SDK: a6df49f47319bd19a110c960c498af32df72c0af
   TinyConstraints: 4721a4b303c799328867078ade6560e152df54d1
 
-PODFILE CHECKSUM: 4fbeeb2e08cf2b6bd10cf8af874ab1b1ae433e95
+PODFILE CHECKSUM: 102729d5a3bfb52fcba37e55ec9b12ae5db68aa3
 
 COCOAPODS: 1.5.3

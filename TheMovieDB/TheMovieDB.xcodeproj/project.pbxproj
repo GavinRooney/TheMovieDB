@@ -79,6 +79,10 @@
 		862CA4F62146506B00B08CCD /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862CA4F52146506B00B08CCD /* WebViewController.swift */; };
 		862CA4FA214650BF00B08CCD /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862CA4F9214650BF00B08CCD /* ModalViewController.swift */; };
 		862CA4FC214650F400B08CCD /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862CA4FB214650F400B08CCD /* Buttons.swift */; };
+		862CA4FF2146559A00B08CCD /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862CA4FE2146559A00B08CCD /* SplashViewController.swift */; };
+		862CA5022146560900B08CCD /* loop.json in Resources */ = {isa = PBXBuildFile; fileRef = 862CA5002146560900B08CCD /* loop.json */; };
+		862CA5032146560900B08CCD /* transition-In.json in Resources */ = {isa = PBXBuildFile; fileRef = 862CA5012146560900B08CCD /* transition-In.json */; };
+		862CA5062146565800B08CCD /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862CA5052146565800B08CCD /* AppRouter.swift */; };
 		D42D03BB9C0AACAFFD3436D6 /* Pods_TheMovieDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1013E700B5C622D2CD2146A0 /* Pods_TheMovieDBTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -165,6 +169,10 @@
 		862CA4F52146506B00B08CCD /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		862CA4F9214650BF00B08CCD /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		862CA4FB214650F400B08CCD /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		862CA4FE2146559A00B08CCD /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		862CA5002146560900B08CCD /* loop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loop.json; sourceTree = "<group>"; };
+		862CA5012146560900B08CCD /* transition-In.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "transition-In.json"; sourceTree = "<group>"; };
+		862CA5052146565800B08CCD /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		A52E1ADE453EF80F133EF3C7 /* Pods_TheMovieDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMovieDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEAD7CFD31485E00B3FC593 /* Pods-TheMovieDBAPITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDBAPITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieDBAPITests/Pods-TheMovieDBAPITests.release.xcconfig"; sourceTree = "<group>"; };
 		C785D41A7D62B2917E120341 /* Pods-TheMovieDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDB.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieDB/Pods-TheMovieDB.release.xcconfig"; sourceTree = "<group>"; };
@@ -287,6 +295,7 @@
 		8617073F2142C9BA004680C1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				862CA5042146564900B08CCD /* Router */,
 				861707D32145457E004680C1 /* Storage */,
 				8617079A2143F19A004680C1 /* RemoteConfig */,
 				8617078E2143D248004680C1 /* Protocols */,
@@ -377,6 +386,7 @@
 		861707712143C016004680C1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				862CA4FD2146556D00B08CCD /* Splash */,
 				862CA4F42146505800B08CCD /* Web */,
 				861707DB21455D31004680C1 /* MovieDetail */,
 				861707722143C023004680C1 /* SearchList */,
@@ -455,6 +465,8 @@
 		861707872143CE1D004680C1 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				862CA5002146560900B08CCD /* loop.json */,
+				862CA5012146560900B08CCD /* transition-In.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -538,6 +550,22 @@
 				862CA4F9214650BF00B08CCD /* ModalViewController.swift */,
 			);
 			path = Modal;
+			sourceTree = "<group>";
+		};
+		862CA4FD2146556D00B08CCD /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				862CA4FE2146559A00B08CCD /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		862CA5042146564900B08CCD /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				862CA5052146565800B08CCD /* AppRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -652,9 +680,11 @@
 				8617071C21402EBD004680C1 /* LaunchScreen.storyboard in Resources */,
 				8617078B2143CE3D004680C1 /* Muli-Bold.ttf in Resources */,
 				8617074E2142CE56004680C1 /* Localizable.strings in Resources */,
+				862CA5032146560900B08CCD /* transition-In.json in Resources */,
 				8617073E2142C313004680C1 /* Settings.bundle in Resources */,
 				8617078D2143CE3D004680C1 /* nevis.ttf in Resources */,
 				861707BB21441FDD004680C1 /* moviedbconfig.json in Resources */,
+				862CA5022146560900B08CCD /* loop.json in Resources */,
 				8617071921402EBD004680C1 /* Assets.xcassets in Resources */,
 				8617079E2143F2C1004680C1 /* genres.json in Resources */,
 			);
@@ -697,6 +727,7 @@
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${PODS_ROOT}/Reveal-SDK/RevealServer-17/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/TinyConstraints/TinyConstraints.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -706,6 +737,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TinyConstraints.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -775,8 +807,10 @@
 			files = (
 				861707E421458995004680C1 /* LinkText.swift in Sources */,
 				861707522142CF47004680C1 /* AppConfig.swift in Sources */,
+				862CA5062146565800B08CCD /* AppRouter.swift in Sources */,
 				861707B721441EC0004680C1 /* GetMovieDBConfigWorker.swift in Sources */,
 				861707E021455D69004680C1 /* MovieDetailView.swift in Sources */,
+				862CA4FF2146559A00B08CCD /* SplashViewController.swift in Sources */,
 				861707392142C081004680C1 /* Settings.swift in Sources */,
 				861707E221456334004680C1 /* MovieDetailInteractor.swift in Sources */,
 				862CA4FA214650BF00B08CCD /* ModalViewController.swift in Sources */,
