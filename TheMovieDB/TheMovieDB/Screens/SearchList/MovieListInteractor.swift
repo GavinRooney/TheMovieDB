@@ -50,7 +50,7 @@ class MovieListInteractor {
             
         }, failure: { error in
             self.delegate?.hideSpinner()
-            
+            self.delegate?.showErrorAlert()
         })
 
     }

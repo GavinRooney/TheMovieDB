@@ -9,7 +9,7 @@
 import UIKit
 import TinyConstraints
 
-class MovieDetailViewController: UIViewController, LoadingDisplayLogic  {
+class MovieDetailViewController: UIViewController, LoadingDisplayLogic, AlertPresenter  {
     
     var animationView: LoadingAnimationView?
 
@@ -87,7 +87,7 @@ extension MovieDetailViewController : MovieDetailInteractorDelegate {
     }
     
     func showErrorAlert() {
-        
+        self.alert(message: "MOVIE_DETAIL_NOT_FOUND".localized)
     }
     
     func updateMovieDetail(_ movie: Movie) {

@@ -35,6 +35,7 @@ final class AppRouter {
         
         let vc = MovieListViewController()
         let navVC = UINavigationController(rootViewController: vc)
+        navVC.navigationBar.barTintColor = Style.Colors.white
         AppRouter.appDelegate?.window??.rootViewController = navVC
     }
     

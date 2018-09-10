@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController, LoadingDisplayLogic {
+class MovieListViewController: UIViewController, LoadingDisplayLogic, AlertPresenter {
     
     var animationView: LoadingAnimationView?
 
@@ -89,7 +89,7 @@ extension MovieListViewController : MovieListInteractorDelegate {
     }
     
     func showErrorAlert() {
-        
+        self.alert(message: "MOVIES_NOT_FOUND".localized)
     }
     
     func displayMovies(movies: [Movie]?) {

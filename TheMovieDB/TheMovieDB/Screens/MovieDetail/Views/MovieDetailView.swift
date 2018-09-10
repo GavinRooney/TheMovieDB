@@ -255,8 +255,11 @@ extension MovieDetailView {
             homepageTextView.setLink(homepage, onText: "CHECK_THEIR_WEBSITE".localized)
         }
         
-        if let overview = movie.overview {
+        if let overview = movie.overview, overview.count > 0 {
             overviewLabel.text = overview + overview + overview
+            contentView.isHidden = false
+        } else {
+            contentView.isHidden = true
         }
         
         

@@ -18,3 +18,9 @@
 "REVENUE" = "Revenue: ";
 "LANGUAGE" = "Language: ";
 "CHECK_THEIR_WEBSITE" = ">> Check out their website now! <<";
+
+
+// Alerts
+"OK" = "OK";
+"MOVIES_NOT_FOUND" = "Movies not found";
+"MOVIE_DETAIL_NOT_FOUND" = "Movie details not found";
