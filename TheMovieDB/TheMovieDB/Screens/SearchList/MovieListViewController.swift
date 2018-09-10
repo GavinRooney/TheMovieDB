@@ -8,8 +8,10 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController {
+class MovieListViewController: UIViewController, LoadingDisplayLogic {
     
+    var animationView: LoadingAnimationView?
+
     private var movieListView = MovieListView()
     private var movieListInteractor: MovieListInteractor?
     
@@ -79,11 +81,11 @@ extension MovieListViewController : MovieListInteractorDelegate {
     }
     
     func showSpinner() {
-        
+        showLoadingAnimation()
     }
     
     func hideSpinner() {
-        
+        hideLoadingAnimation()
     }
     
     func showErrorAlert() {

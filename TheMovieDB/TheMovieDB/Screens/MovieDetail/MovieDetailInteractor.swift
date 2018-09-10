@@ -27,13 +27,16 @@ class MovieDetailInteractor {
     func requestMovieDetail() {
         
         if let movieID = movie.id {
+            delegate?.showSpinner()
             let worker = GetMoviesWorker()
             worker.requestDetail(movieID: String(movieID), completion: { movie in
                 
-                    self.movie = movie
-                    self.delegate?.updateMovieDetail(movie)
+                self.movie = movie
+                self.delegate?.updateMovieDetail(movie)
+                self.delegate?.hideSpinner()
                 
             }, failure: { error in
+                self.delegate?.hideSpinner()
                 
             })
     

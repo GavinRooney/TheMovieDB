@@ -35,6 +35,7 @@ class MovieListInteractor {
     func requestMovies(query: String?) {
         let worker = GetMoviesWorker()
 
+        delegate?.showSpinner()
         worker.requestList(query: query ?? "", page: 1, completion: { response in
             
             if let results = response.results {
@@ -45,8 +46,10 @@ class MovieListInteractor {
             } else {
                 self.delegate?.displayMovies(movies:nil)
             }
+            self.delegate?.hideSpinner()
             
         }, failure: { error in
+            self.delegate?.hideSpinner()
             
         })
 

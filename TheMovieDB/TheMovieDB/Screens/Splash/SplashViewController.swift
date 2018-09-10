@@ -49,7 +49,7 @@ extension SplashViewController {
             }
         }
         
-        splashAnimationTransitionIn = LOTAnimationView(name: "transition-In")
+        splashAnimationTransitionIn = LOTAnimationView(name: "transitionIn")
         splashAnimationTransitionIn?.contentMode = .scaleAspectFill
         splashAnimationTransitionIn?.frame = view.bounds
         splashAnimationTransitionIn?.loopAnimation = false

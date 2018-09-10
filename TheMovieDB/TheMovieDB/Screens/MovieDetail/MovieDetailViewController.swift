@@ -9,8 +9,10 @@
 import UIKit
 import TinyConstraints
 
-class MovieDetailViewController: UIViewController {
+class MovieDetailViewController: UIViewController, LoadingDisplayLogic  {
     
+    var animationView: LoadingAnimationView?
+
     private var movieDetailView = MovieDetailView()
     private var interactor: MovieDetailInteractor?
     
@@ -77,11 +79,11 @@ extension MovieDetailViewController {
 
 extension MovieDetailViewController : MovieDetailInteractorDelegate {
     func showSpinner() {
-        
+        showLoadingAnimation()
     }
     
     func hideSpinner() {
-        
+        hideLoadingAnimation()
     }
     
     func showErrorAlert() {
