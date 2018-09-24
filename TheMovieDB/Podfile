@@ -7,7 +7,7 @@ target 'TheMovieDB' do
   pod 'Reveal-SDK', :configurations => ['Debug']
   pod 'Alamofire', '4.6.0'
   pod 'AlamofireImage', '3.3.0'
-  pod 'RealmSwift', '3.7.5'
+  pod 'RealmSwift', '3.10.0'
   pod 'lottie-ios', '2.5.0'
   
   target 'TheMovieDBTests' do

@@ -29,7 +29,8 @@ class SearchMoviesRequest: ApiRequest {
     
     init(query: String, page: Int = 1) {
         
-        super.init(method: .get, url: "search/movie?query=\(query)&page=\(page)", parameters: nil)
+        let escapedString = query.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+        super.init(method: .get, url: "search/movie?query=\(escapedString)&page=\(page)", parameters: nil)
     }
 }
 
